@@ -78,8 +78,14 @@ fn main() {
 	let bindings_out_path = PathBuf::from(env::var("OUT_DIR").unwrap()).join("bindings.rs");
 	std::fs::write(bindings_out_path, rust_source).expect("Couldn't write updated bindgen output");
 
+	#[cfg(feature = "nrf9160")]
 	let libmodem_original_path =
-		Path::new(&nrfxlib_path).join("nrf_modem/lib/cortex-m33/hard-float/libmodem.a");
+		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9160/soft-float/libmodem.a");
+
+	#[cfg(feature = "nrf9120")]
+	let libmodem_original_path =
+		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9120/soft-float/libmodem.a");
+
 	let libmodem_changed_path = PathBuf::from(env::var("OUT_DIR").unwrap()).join("libmodem.a");
 
 	// The modem library now has compressed headers, but Rust cannot deal with that.
@@ -132,9 +138,9 @@ fn main() {
 	println!(
 		"cargo:rustc-link-search={}",
 		Path::new(&nrfxlib_path)
-			.join("crypto/nrf_oberon/lib/cortex-m33/hard-float")
+			.join("crypto/nrf_oberon/lib/cortex-m33/soft-float")
 			.display()
 	);
 	println!("cargo:rustc-link-lib=static=modem");
-	println!("cargo:rustc-link-lib=static=oberon_3.0.13");
+	println!("cargo:rustc-link-lib=static=oberon_3.0.15");
 }
