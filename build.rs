@@ -78,16 +78,17 @@ fn main() {
 	let bindings_out_path = PathBuf::from(env::var("OUT_DIR").unwrap()).join("bindings.rs");
 	std::fs::write(bindings_out_path, rust_source).expect("Couldn't write updated bindgen output");
 
-    // The nrf9160 feature is on by default for legacy support, so we check for the nrf9120 feature
-    // first to handle the case in which both nrf9120 and nrf9160 are set (i.e., nrf9120 is set,
-    // but no-defaults is not set)
-	let libmodem_original_path = if cfg!(feature = "nrf9120") {
-		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9120/soft-float/libmodem.a")
-    } else if cfg!(feature = "nrf9160") {
-		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9160/soft-float/libmodem.a")
-    } else {
-        panic!("No chip feature selected. Supported chips are: nrf9160 or nrf9151, nrf9161, nrf9120.");
-    };
+	// The nrf9160 feature is on by default for legacy support, so we check for the nrf9120 feature
+	// first to handle the case in which both nrf9120 and nrf9160 are set (i.e., nrf9120 is set,
+	// but no-defaults is not set)
+	let libmodem_original_path =
+		if cfg!(feature = "nrf9120") {
+			Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9120/soft-float/libmodem.a")
+		} else if cfg!(feature = "nrf9160") {
+			Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9160/soft-float/libmodem.a")
+		} else {
+			panic!("No chip feature selected. Supported chips are: nrf9160 or nrf9151, nrf9161, nrf9120.");
+		};
 
 	let libmodem_changed_path = PathBuf::from(env::var("OUT_DIR").unwrap()).join("libmodem.a");
 
