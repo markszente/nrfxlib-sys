@@ -40,7 +40,7 @@ bindgen = "0.66.1"
 llvm-tools = { version = "0.1.1", optional = true }
 
 [features]
-default = ["llvm-objcopy"]
+default = ["nrf9160", "llvm-objcopy"]
 arm-none-eabi-objcopy = []
 llvm-objcopy = ["dep:llvm-tools"]
 
