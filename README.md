@@ -2,7 +2,11 @@
 
 This is a Rust wrapper for the Nordic
 [nrfxlib](https://github.com/NordicPlayground/nrfxlib) set of libraries,
-primarily `libmodem` and `liboberon` for the nRF9160.
+primarily `libmodem` and `liboberon` for the nRF91* series chips (System-in-Packages). Supported chips are the following:
+
+* nRF9160
+* nRF9151
+* nRF9161
 
 Any binary which uses this crate is going to need to provide a bunch of C
 library functions, because Nordic's library expects them. This includes, but
@@ -20,11 +24,13 @@ please - for now I'm using
 
 ## Using
 
+**NOTE**: This crate does **not** follow [semver](https://doc.rust-lang.org/cargo/reference/semver.html). The version of this crate tracks the version of the underlying Nordic [libraries](https://github.com/nrfconnect/sdk-nrfxlib/tags).
+
 In your own program or library, you can depend on this crate in the usual fashion:
 
 ```toml
 [dependencies]
-nrfxlib-sys = "2.1"
+nrfxlib-sys = "2.7.0"
 ```
 
 Because the modem library has its debug sections compressed and Rust's tooling doesn't have support for
@@ -66,6 +72,11 @@ without any additional terms or conditions.
 ## Changelog
 
 ### Unreleased Changes ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/develop) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.4.2...develop))
+
+### v2.7.0 ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/v2.7.0) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.4.2...v2.7.0))
+
+* Updated to [nrfxlib v2.7.0](https://github.com/NordicPlayground/nrfxlib/tree/v2.7.0)
+* Added support for the nRF9151 and nRF9161
 
 ### v2.4.2 ([Source](https://github.com/nrf-rs/nrfxlib-sys/tree/v2.4.2) | [Changes](https://github.com/nrf-rs/nrfxlib-sys/compare/v2.1.0...v2.4.2))
 

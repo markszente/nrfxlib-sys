@@ -40,12 +40,13 @@ bindgen = "0.66.1"
 llvm-tools = { version = "0.1.1", optional = true }
 
 [features]
-default = ["nrf9160", "llvm-objcopy"]
+default = ["llvm-objcopy"]
 arm-none-eabi-objcopy = []
 llvm-objcopy = ["dep:llvm-tools"]
 
 nrf9160 = []
 nrf9151 = ["nrf9120"]
 nrf9161 = ["nrf9120"]
+# The nrf9120 is the part number of the SoC internal to the nrf9151 and nrf9161 SiPs
 nrf9120 = []
 
