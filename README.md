@@ -30,7 +30,8 @@ In your own program or library, you can depend on this crate in the usual fashio
 
 ```toml
 [dependencies]
-nrfxlib-sys = "2.7.0"
+# A chip feature must be selected
+nrfxlib-sys = { version = "2.7.0", feature = ["nrf9160"] }
 ```
 
 Because the modem library has its debug sections compressed and Rust's tooling doesn't have support for
