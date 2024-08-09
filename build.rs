@@ -4,13 +4,13 @@
 //! files.
 
 #[cfg(not(any(
-    feature = "nrf9160",
-    feature = "nrf9120",
-    feature = "nrf9151",
-    feature = "nrf9161",
+	feature = "nrf9160",
+	feature = "nrf9120",
+	feature = "nrf9151",
+	feature = "nrf9161",
 )))]
 compile_error!(
-    "No chip feature selected. You must selected exactly one of the following features:
+	"No chip feature selected. You must selected exactly one of the following features:
     nrf9160,
     nrf9151,
     nrf9161,
@@ -93,10 +93,12 @@ fn main() {
 	std::fs::write(bindings_out_path, rust_source).expect("Couldn't write updated bindgen output");
 
 	#[cfg(feature = "nrf9160")]
-	let libmodem_original_path = Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9160/hard-float/libmodem.a");
+	let libmodem_original_path =
+		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9160/hard-float/libmodem.a");
 
 	#[cfg(feature = "nrf9120")]
-	let libmodem_original_path = Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9120/hard-float/libmodem.a");
+	let libmodem_original_path =
+		Path::new(&nrfxlib_path).join("nrf_modem/lib/cellular/nrf9120/hard-float/libmodem.a");
 
 	let libmodem_changed_path = PathBuf::from(env::var("OUT_DIR").unwrap()).join("libmodem.a");
 
