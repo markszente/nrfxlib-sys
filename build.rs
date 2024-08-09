@@ -150,7 +150,7 @@ fn main() {
 	println!(
 		"cargo:rustc-link-search={}",
 		Path::new(&nrfxlib_path)
-			.join("crypto/nrf_oberon/lib/cortex-m33/soft-float")
+			.join("crypto/nrf_oberon/lib/cortex-m33/hard-float")
 			.display()
 	);
 	println!("cargo:rustc-link-lib=static=modem");
