@@ -1,6 +1,6 @@
 [package]
 name = "nrfxlib-sys"
-version = "2.7.0"
+version = "2.7.1"
 authors = [
 	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>",
 	"42 Technology Ltd <jonathan.pallant@42technology.com>",
@@ -19,7 +19,8 @@ include = [
 	"build.rs",
 	"wrapper.h",
 	"*.md",
-	"third_party/nordic/nrfxlib/nrf_modem/lib/cortex-m33/hard-float/**",
+	"third_party/nordic/nrfxlib/nrf_modem/lib/cellular/nrf9160/hard-float/libmodem.a",
+	"third_party/nordic/nrfxlib/nrf_modem/lib/cellular/nrf9120/hard-float/libmodem.a",
 	"third_party/nordic/nrfxlib/nrf_modem/include/**",
 	"third_party/nordic/nrfxlib/nrf_modem/license.txt",
 	"third_party/nordic/nrfxlib/nrf_modem/README.rst",
