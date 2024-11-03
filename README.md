@@ -31,7 +31,7 @@ In your own program or library, you can depend on this crate in the usual fashio
 ```toml
 [dependencies]
 # A chip feature must be selected
-nrfxlib-sys = { version = "=2.7.1", feature = ["nrf9160"] }
+nrfxlib-sys = { version = "=2.7.1", features = ["nrf9160"] }
 ```
 
 Because the modem library has its debug sections compressed and Rust's tooling doesn't have support for
@@ -58,11 +58,11 @@ You might also prefer the async [higher-level wrapper](https://crates.io/crates/
 nrf-modem = "*"
 ```
 
-## Licence
+## License
 
 Any of the code outside the `./third_party` folder is under the [Blue Oak
-Licence](./LICENCE.md). Any code inside the `./third_party` folder (include
-the Nordic nrfxlib) has its own LICENCE file.
+License](./LICENSE.md). Any code inside the `./third_party` folder (include
+the Nordic nrfxlib) has its own LICENSE file.
 
 ## Contribution
 

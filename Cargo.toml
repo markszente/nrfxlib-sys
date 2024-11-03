@@ -4,12 +4,12 @@ version = "2.7.1"
 authors = [
 	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>",
 	"42 Technology Ltd <jonathan.pallant@42technology.com>",
-	"Dion Dokter <diondokter@gmail.com>"
+	"Dion Dokter <diondokter@gmail.com>",
 ]
 edition = "2021"
 description = "Rust bindings to the Nordic nRF91* Socket Library."
 readme = "README.md"
-license-file = "LICENCE.md"
+license-file = "LICENSE.md"
 repository = "https://github.com/nrf-rs/nrfxlib-sys"
 
 # The nrfxlib folder is quite large, so only include the pieces we need
@@ -37,11 +37,11 @@ include = [
 
 [build-dependencies]
 regex = "1"
-bindgen = "0.66.1"
+bindgen = "0.70"
 llvm-tools = { version = "0.1.1", optional = true }
 
 [features]
-default = ["llvm-objcopy"]
+default = ["llvm-objcopy", "nrf9160"]
 arm-none-eabi-objcopy = []
 llvm-objcopy = ["dep:llvm-tools"]
 
@@ -50,4 +50,3 @@ nrf9151 = ["nrf9120"]
 nrf9161 = ["nrf9120"]
 # The nrf9120 is the part number of the SoC internal to the nrf9151 and nrf9161 SiPs
 nrf9120 = []
-

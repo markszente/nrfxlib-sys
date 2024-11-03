@@ -25,6 +25,7 @@
 #include "crypto/nrf_cc310_platform/include/nrf_cc3xx_platform_defines.h"
 #include "crypto/nrf_cc310_platform/include/nrf_cc3xx_platform_entropy.h"
 #include "crypto/nrf_cc310_platform/include/nrf_cc3xx_platform_mutex.h"
+#include "crypto/nrf_cc310_platform/include/nrf_cc3xx_platform_ctr_drbg.h"
 
 /*
  * Crypto Cell 310 (CC310) mbedTLS integration headers
