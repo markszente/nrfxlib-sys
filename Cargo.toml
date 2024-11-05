@@ -9,7 +9,7 @@ authors = [
 edition = "2021"
 description = "Rust bindings to the Nordic nRF91* Socket Library."
 readme = "README.md"
-license-file = "LICENSE.md"
+license-file = "LICENCE.md"
 repository = "https://github.com/nrf-rs/nrfxlib-sys"
 
 # The nrfxlib folder is quite large, so only include the pieces we need

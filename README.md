@@ -58,11 +58,11 @@ You might also prefer the async [higher-level wrapper](https://crates.io/crates/
 nrf-modem = "*"
 ```
 
-## License
+## Licence
 
 Any of the code outside the `./third_party` folder is under the [Blue Oak
-License](./LICENSE.md). Any code inside the `./third_party` folder (include
-the Nordic nrfxlib) has its own LICENSE file.
+Licence](./LICENCE.md). Any code inside the `./third_party` folder (include
+the Nordic nrfxlib) has its own LICENCE file.
 
 ## Contribution
 
