@@ -34,6 +34,7 @@ fn main() {
 		.clang_arg("-I./include")
 		// Add extra paths that the C files assume are searched
 		.clang_arg("-I./third_party/nordic/nrfxlib/crypto/nrf_cc310_platform/include")
+		.clang_arg("-I./third_party/nordic/nrfxlib/crypto/nrf_cc310_mbedcrypto/include")
 		.clang_arg("-I./third_party/nordic/nrfxlib/crypto/nrf_oberon")
 		// Disable standard includes (they belong to the host)
 		.clang_arg("-nostdinc")
@@ -155,6 +156,14 @@ fn main() {
 			.join("crypto/nrf_oberon/lib/cortex-m33/hard-float")
 			.display()
 	);
+	// the no interrupt version of the library does not use mutexes, it is easier to handle
+	println!(
+		"cargo:rustc-link-search={}",
+		Path::new(&nrfxlib_path)
+			.join("crypto/nrf_cc310_platform/lib/cortex-m33/hard-float/no-interrupts")
+			.display()
+	);
 	println!("cargo:rustc-link-lib=static=modem");
 	println!("cargo:rustc-link-lib=static=oberon_3.0.15");
+	println!("cargo:rustc-link-lib=static=nrf_cc310_platform_0.9.19");
 }
